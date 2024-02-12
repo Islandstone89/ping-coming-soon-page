@@ -1,0 +1,232 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* Colors */
+    --clr-blue: hsl(223, 87%, 63%);
+    --clr-pale-blue: hsl(223, 100%, 88%);
+    --clr-dark-blue: hsl(209, 33%, 12%);
+    --clr-light-red: hsl(354, 100%, 66%);
+    --clr-grey: hsl(0, 0%, 59%);
+    --clr-white: hsl(0, 100%, 100%);
+
+    /* Typography */
+    --fs-regular: 1.25rem;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Libre Franklin';
+    font-weight: 300;
+    src: url('assets/fonts/LibreFranklin-Light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Libre Franklin';
+    font-weight: 600;
+    src: url('assets/fonts/LibreFranklin-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Libre Franklin';
+    font-weight: 700;
+    src: url('assets/fonts/LibreFranklin-Bold.woff2') format('woff2');
+}
+
+/* UTILITIES */
+
+.visually-hidden {
+    clip-path: inset(50%);
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+}
+
+.flow > * + * {
+    --flow-space: 3em;
+    margin-top: var(--flow-space);
+}
+
+/* GENERAL STYLING */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: var(--fs-regular);
+    text-align: center;
+    padding: 1rem;
+}
+
+.header,
+.main,
+.footer {
+    max-width: 50rem;
+}
+
+.header {
+    margin-top: 3rem;
+}
+
+.main-heading {
+    color: var(--clr-grey);
+    font-weight: 300;
+}
+
+.accent {
+    color: var(--clr-dark-blue);
+    font-weight: 700;
+}
+
+.tagline {
+    --flow-space: 1em;
+}
+
+.form {
+    --flow-space: 2em;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.input {
+    border: none;
+    outline: 1px solid var(--clr-dark-blue);
+    border-radius: 40px;
+    padding: 1em 2em;
+    flex-grow: 999;
+}
+
+.btn {
+    text-transform: capitalize;
+    border: none;
+    border-radius: 40px;
+    padding: 1em 4em;
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.btn:is(:focus, :hover) {
+    opacity: .8;
+    transition: .2s;
+}
+
+.input::placeholder {
+    color: var(--clr-dark-blue);
+}
+
+/* Footer */
+
+.social-media__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 0;
+}
+
+.social-media__list__item:is(:focus, :hover) {
+    background-color: var(--clr-blue);
+    transition: .2s;
+}
+
+.social-media__list__item:is(:focus, :hover) .social-media__logo {
+    fill: var(--clr-white);
+    transition: .2s;
+}
+
+.social-media__logo {
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--clr-blue);
+    outline: 1px solid var(--clr-blue);
+    border-radius: 50%;
+    outline-offset: .5em;
+}
+
+.footer__paragraph {
+    font-size: 1rem;
+    --flow-space: 2em;
+}
