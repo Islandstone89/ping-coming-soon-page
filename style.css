@@ -82,6 +82,8 @@ textarea:not([rows]) {
     --clr-grey: hsl(0, 0%, 59%);
     --clr-white: hsl(0, 100%, 100%);
 
+    --clr-gold: gold;
+
     --clr-dark-red: hsl(from var(--clr-light-red) h s 40%);
 
     /* Typography */
@@ -178,7 +180,7 @@ body {
 }
 
 .input {
-    border: none;
+    border: 1px solid var(--clr-dark-blue);
     outline: 1px solid var(--clr-dark-blue);
     border-radius: 40px;
     padding: 1em 2em;

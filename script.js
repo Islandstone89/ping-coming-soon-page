@@ -1,19 +1,26 @@
 
 let form = document.querySelector(".form");
-let input = document.querySelector(".input");
+let emailInput = document.querySelector(".input");
 let errorMessage = document.querySelector(".error-message");
-
-let btn = document.querySelector(".btn");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
-    console.log(input.validity);
-    if(input.value === "") {
-        errorMessage.style.display = "block";
-    }
-    if(input.typeMismatch) {
-        errorMessage.textContent = "Does this work?"
-    }
-})
 
-console.log(input.validity);
+    if(emailInput.value === "") {
+        emailInput.style.borderColor = "var(--clr-dark-red)";
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Whoops! It looks like you forgot to add your email";
+    }
+
+    else if (emailInput.value.indexOf("@") === -1) {
+        emailInput.style.borderColor = "var(--clr-dark-red)";
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Please provide an valid email address";
+    }
+
+    else  {
+        emailInput.style.borderColor = "green";
+        errorMessage.style.display = "none";
+    } 
+}
+)
